@@ -28,4 +28,3 @@ services:
 
   gce_app:
     build: .
-    image: python:3.8.10
