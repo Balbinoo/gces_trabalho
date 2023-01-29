@@ -1,0 +1,31 @@
+version: '3.7'
+
+volumes:
+  data:
+
+services:
+
+  postgres:
+    container_name: "postgres_gces"
+    restart: "always"
+    image: postgres
+    env_file:
+      - ./metabase/config/postgres.env
+    volumes:
+      - data:/var/lib/postgresql/data/
+      - ./services/postgres/:/docker-entrypoint-initdb.d/
+    ports:
+      - 54322:54322
+
+  metabase:
+    container_name: "metabase_gces"
+    restart: "always"
+    image: metabase/metabase
+    env_file:
+      - ./metabase/config/metabase_database.env
+    ports:
+      - 3000:3000
+
+  gce_app:
+    build: .
+    image: python:3.8.10
