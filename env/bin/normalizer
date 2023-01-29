@@ -1,4 +1,4 @@
-#!/home/rodrigo/Desktop/Trabalho-Individual-2022-2-/env/bin/python3
+#!/home/rodrigo/Desktop/gces_trabalho/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
