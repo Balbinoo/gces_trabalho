@@ -2,13 +2,11 @@ FROM python:3.8.10
 
 WORKDIR /application
 
-COPY poetry.lock pyprocject.toml
-
-RUN pip install poetry==1.3.2
-
 COPY . .
 
-RUN poetry add `cat requirements.txt`
+RUN cd poetry_190048221_Rodrigo && pip install poetry==1.3.2
+
+RUN cd poetry_190048221_Rodrigo && poetry add `cat ../requirements.txt`
 
 RUN pip3 install -r requirements.txt
 
